@@ -44,6 +44,23 @@ export class TouristSpotsListComponent implements OnInit {
     }
   }
 
+  confirmDeleteHotel(hotelId: number): void {
+    const confirmDialog = window.confirm("Are you sure you want to delete this hotel?");
+    if (confirmDialog) {
+      this.deleteHotel(hotelId);
+    }
+  }
+
+  async deleteHotel(hotelId: number): Promise<void> {
+    const result = await this.supabaseService.deleteHotel(hotelId);
+    if (result.error) {
+      console.error('Error deleting hotel:', result.error);
+    } else {
+      this.loadHotelsAndRestaurants();
+    }
+  }
+
+
   async deleteRestaurant(restaurantId: number): Promise<void> {
     await this.supabaseService.deleteRestaurant(restaurantId);
     this.loadHotelsAndRestaurants();

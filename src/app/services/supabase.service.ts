@@ -202,7 +202,11 @@ export class SupabaseService {
 
     if (error) {
       console.error('Error deleting hotel', error);
+      return { error };
     }
+
+    return {};
   }
+
 
 }

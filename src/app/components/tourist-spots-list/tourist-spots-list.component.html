@@ -5,9 +5,10 @@
     <div cdkDropList class="example-list" (cdkDropListDropped)="dropHotelByLocation($event)">
         <div class="example-box" *ngFor="let hotel of hotelsByLocation" cdkDrag>
             {{ hotel.nome }} - {{ hotel.localizacao }}
-            <button class="delete-button" (click)="confirmDelete(hotel.id)">Delete</button>
+            <button class="delete-button" (click)="confirmDeleteHotel(hotel.id)">Delete</button> <!-- Atualizado -->
         </div>
     </div>
+
 
     <h2>Top Restaurants</h2>
     <div cdkDropList class="example-list" (cdkDropListDropped)="dropTopRestaurants($event)">
