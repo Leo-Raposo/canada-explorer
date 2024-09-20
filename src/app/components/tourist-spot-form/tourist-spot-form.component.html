@@ -1,0 +1,38 @@
+<div class="logo-container">
+    <img src="https://i.ibb.co/drPpsQR/Canada-Explorer-Logov2.png" alt="Canada Explorer Logo" class="logo" />
+</div>
+
+<div class="container" [ngClass]="{ 'right-panel-active': isRightPanelActive }">
+
+    <div class="container__form container--signup">
+        <form class="form" [formGroup]="signUpForm" (ngSubmit)="onSignUp()">
+            <h2 class="form__title">Sign Up</h2>
+            <input type="text" placeholder="Username" class="input" formControlName="username" required />
+            <input type="email" placeholder="Email" class="input" formControlName="email" required />
+            <input type="password" placeholder="Password" class="input" formControlName="password" required />
+            <button class="btn" type="submit" [disabled]="signUpForm.invalid">Sign Up</button>
+        </form>
+    </div>
+
+    <div class="container__form container--signin">
+        <form class="form" [formGroup]="signInForm" (ngSubmit)="onSignIn()">
+            <h2 class="form__title">Sign In</h2>
+            <input type="email" placeholder="Email" class="input" formControlName="email" required />
+            <input type="password" placeholder="Password" class="input" formControlName="password" required />
+            <a href="#" class="link" (click)="onRecoverPassword()">Forgot your password?</a>
+            <button class="btn" type="submit" [disabled]="signInForm.invalid">Sign In</button>
+        </form>
+    </div>
+
+    <div class="container__overlay">
+        <div class="overlay">
+            <div class="overlay__panel overlay--left">
+                <button class="btn ghost" (click)="togglePanel()">Sign In</button>
+            </div>
+            <div class="overlay__panel overlay--right">
+                <button class="btn ghost" (click)="togglePanel()">Sign Up</button>
+            </div>
+        </div>
+    </div>
+
+</div>

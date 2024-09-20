@@ -1,0 +1,7 @@
+<div class="dialog-content">
+    <div class="dialog-header">{{ data.city }} - {{ data.attraction }}</div>
+    <iframe class="video-iframe" [src]="sanitizer.bypassSecurityTrustResourceUrl(data.videoUrl)" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+    </iframe>
+</div>

@@ -1,0 +1,40 @@
+<app-bar></app-bar>
+
+<div class="form-container">
+    <h2>Add Tourist Spot</h2>
+
+    <div class="form-row">
+        <label for="ponto">Tourist Spot:</label>
+        <select id="ponto" [(ngModel)]="selectedPointId">
+            <option *ngFor="let ponto of pontos" [value]="ponto.id">{{ ponto.local }}</option>
+        </select>
+
+        <label for="cidade">City:</label>
+        <select id="cidade" [(ngModel)]="selectedCity" (change)="loadLocais()">
+            <option *ngFor="let cidade of cidades" [value]="cidade">{{ cidade }}</option>
+        </select>
+
+        <label for="local">Location:</label>
+        <select id="local" [(ngModel)]="selectedLocal">
+            <option *ngFor="let local of locais" [value]="local">{{ local }}</option>
+        </select>
+    </div>
+
+    <div class="form-row">
+        <div class="form-section">
+            <h3>Hotel</h3>
+            <input [(ngModel)]="hotel.nome" placeholder="Hotel Name" />
+            <input [(ngModel)]="hotel.imagem" placeholder="Hotel Image" />
+            <input [(ngModel)]="hotel.localizacao" placeholder="Hotel Localization" />
+            <button (click)="addHotel()">Add Hotel</button>
+        </div>
+
+        <div class="form-section">
+            <h3>Restaurant</h3>
+            <input [(ngModel)]="restaurante.nome" placeholder="Restaurant Name" />
+            <input [(ngModel)]="restaurante.imagem" placeholder="Restaurant Image" />
+            <input [(ngModel)]="restaurante.localizacao" placeholder="Restaurant Localization" />
+            <button (click)="addRestaurante()">Add Restaurant</button>
+        </div>
+    </div>
+</div>

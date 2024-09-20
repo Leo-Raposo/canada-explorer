@@ -1,0 +1,21 @@
+<app-bar></app-bar>
+
+<div class="list-container">
+    <h2>Top Hotels</h2>
+    <div cdkDropList class="example-list" (cdkDropListDropped)="dropHotelByLocation($event)">
+        <div class="example-box" *ngFor="let hotel of hotelsByLocation" cdkDrag>
+            {{ hotel.nome }} - {{ hotel.localizacao }}
+            <button class="delete-button" (click)="confirmDelete(hotel.id)">Delete</button>
+        </div>
+    </div>
+
+    <h2>Top Restaurants</h2>
+    <div cdkDropList class="example-list" (cdkDropListDropped)="dropTopRestaurants($event)">
+        <div class="example-box" *ngFor="let restaurant of topRestaurants" cdkDrag>
+            {{ restaurant.nome }} - {{ restaurant.localizacao }}
+            <button class="delete-button" (click)="confirmDelete(restaurant.id)">Delete</button>
+        </div>
+    </div>
+
+    <button class="add-button" (click)="navigateToAdd()">Add Tourist Spot</button>
+</div>

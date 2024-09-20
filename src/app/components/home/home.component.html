@@ -1,0 +1,10 @@
+<app-bar></app-bar>
+
+<div class="grid">
+    <div class="item-1" *ngFor="let item of items" (mouseenter)="changeBackground(item.location)"
+        (mouseleave)="resetBackground()" (click)="openPopup(item.location)">
+        <span>{{item.city}}</span>
+        <span class="shop">{{item.attraction}}</span>
+        <div class="overlay"></div>
+    </div>
+</div>
